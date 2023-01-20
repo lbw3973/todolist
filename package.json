@@ -1,0 +1,24 @@
+{
+  "name": "kdt4-m3",
+  "version": "1.0.0",
+  "description": "- 과제 기한:\r   - 과제 수행 기간: 2023년 01월 16일(월) ~ 2023년 01월 27일(금)\r   - 서로 리뷰 기간: 2023년 01월 30일(월) ~ 2023년 02월 03일(금)\r - 내용:\r   - 주어진 API를 활용해 '[완성 예시](https://beautiful-daifuku-b9462c.netlify.app/)' 처럼 자유롭게 영화 검색 기능을 구현해보세요!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbw3973/KDT4-M3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lbw3973/KDT4-M3/issues"
+  },
+  "homepage": "https://github.com/lbw3973/KDT4-M3#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.57.1"
+  }
+}
