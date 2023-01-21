@@ -1,5 +1,8 @@
 body {
-  background-color: rgb(171, 255, 255);
+  // background-color: rgb(197, 255, 195);
+  background: linear-gradient(135deg, #feccff, #ccf7fe, #fcffe4);
+  background-attachment: fixed;
+  transition: 0.5s;
 
   .container {
     display: flex;
@@ -12,7 +15,9 @@ body {
       align-items: center;
       width: 700px;
       padding: 0 30px;
-      border: 1px solid black;
+      background-color: rgb(255, 234, 234);
+      border: 3px solid rgb(235, 186, 186);
+      border-radius: 10px;
 
       h1 {
         text-align: center;
@@ -21,15 +26,25 @@ body {
       }
 
       input {
+        padding: 10px;
         font-size: 20px;
         border-radius: 10px;
         border-color: rgb(12, 12, 12);
         border-style: solid;
       }
+
+      button {
+        font-size: 20px;
+      }
     }
     .list {
       width: 100%;
       margin: 50px;
+
+      .handle {
+        font-size: 30px;
+        font-weight: 100;
+      }
 
       li {
         display: flex;
@@ -37,7 +52,13 @@ body {
         align-items: center;
         gap: 8px;
         padding: 5px;
-        border: 1px solid red;
+        border-bottom: 1px solid rgb(177, 177, 177);
+        text-decoration-thickness: 1.5px;
+
+        input {
+          width: 20px;
+          height: 20px;
+        }
 
         p {
           flex-grow: 1;
@@ -51,6 +72,82 @@ body {
           display: block;
         }
 
+        button {
+          margin-left: 10px;
+        }
+
+      }
+    }
+  }
+
+  .modal-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    backdrop-filter: blur(2px);
+    display: none;
+
+    .modal-content {
+      position: fixed;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 600px;
+      height: 200px;
+      background-color: rgb(231, 255, 253);
+      border: 3px solid rgb(235, 186, 186);
+      border-radius: 15px;
+
+      .title {
+        margin-left: 40px;
+        display: flex;
+        align-items: center;
+      
+        h2 {
+          font-weight: bold;
+          font-size: 25px;
+        }
+
+        .h2-img {
+          width: 50px;
+          height: 50px;
+          background-color: transparent;
+          background-size: cover;
+          background-image: url(../images/pencil.png);
+        }
+      }
+      input {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding: 10px;
+        font-size: 20px;
+        width: 80%;
+        border-radius: 20px;
+        border-color: rgb(12, 12, 12);
+        border-style: solid;
+      }
+
+      #btn-modify {
+        position: absolute;
+        bottom: 0;
+        right: 80px;
+        margin: 10px;
+        font-size: 20px;
+      }
+
+      #btn-cancel {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+        font-size: 20px;
       }
     }
   }

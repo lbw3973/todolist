@@ -7,7 +7,12 @@
   <title>To Do List</title>
   <link rel="icon" href="favicon.png">
 
+  <!-- Google Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  
+  <!-- Reset.css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+  
   <link rel="stylesheet" href="style/main.scss" />
   <script type="module" defer src="js/main.js"></script>
 </head>
@@ -20,6 +25,17 @@
         <button>추가!</button>
       </div>
       <ul class="list"></ul>
+    </div>
+  </div>
+  <div class="modal-container">
+    <div class="modal-content">
+      <div class="title">
+        <div class="h2-img"></div>
+        <h2>Edit</h2>
+      </div>
+      <input type="text" id="input-modify">
+      <button id="btn-modify">수정</button>
+      <button id="btn-cancel">취소</button>
     </div>
   </div>
     

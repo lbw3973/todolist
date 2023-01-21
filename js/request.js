@@ -35,8 +35,9 @@ export const updateTodo = async todo => {
     method: 'PUT',
     headers: headers,
     body: JSON.stringify({
-      title: `${todo.title}!`,
+      title: `${todo.title}`,
       done: todo.done
+      // order: todo.order
     })
   })
 }
