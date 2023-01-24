@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="icon" href="favicon.png">
+
+  <!-- Google Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  
+  <!-- Reset.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+  
+  <link rel="stylesheet" href="style/main.scss" />
+  <script type="module" defer src="js/main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="create">
+      <h1>To Do List</h1>
+      <div class="insert-section">
+        <input type="text" placeholder="할 일 추가">
+        <button class="btn-insert">+</button>
+        <button class="btn-all-delete">전체 삭제</button>
+      </div>
+      <div class="list-container">
+        <ul class="list"></ul>
+      </div>
+      <span id="notice"> 💡 수정이 필요하면 텍스트를 더블클릭하세요!</span>
+    </div>
+  </div>
+  <div class="modal-container">
+    <div class="modal-content">
+      <div class="title">
+        <div class="h2-img"></div>
+        <h2>Edit</h2>
+      </div>
+      <input type="text" id="input-modify">
+      <button id="btn-modify"></button>
+      <button id="btn-cancel"></button>
+    </div>
+  </div>
+  <div class="fixed-loading"></div>
+    
+</body>
+</html>
