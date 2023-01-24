@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 body {
-  // background-color: rgb(197, 255, 195);
   background: linear-gradient(135deg, #feccff, #ccf7fe, #fcffe4);
   background-attachment: fixed;
   transition: 0.5s;
+
+  button {
+    cursor: pointer;
+  }
 
   .container {
     display: flex;
@@ -20,30 +27,45 @@ body {
       border-radius: 10px;
 
       h1 {
+        font-family: 'Solitreo', cursive;
         text-align: center;
         margin: 20px auto;
         font-size: 50px;  
       }
 
-      input {
-        padding: 10px;
-        font-size: 20px;
-        border-radius: 10px;
-        border-color: rgb(12, 12, 12);
-        border-style: solid;
-      }
+      .insert-section{
+        display: flex;
+        gap: 10px;
 
-      button {
-        font-size: 20px;
+        input {
+          padding: 10px;
+          font-size: 20px;
+          border-color: rgb(12, 12, 12);
+          border-style: solid;
+          border-radius: 10px;
+        }
+  
+        .btn-insert {
+          font-size: 30px;
+          width: 50px;
+          border-radius: 10px;
+          background-color: rgb(205,247,253);
+          transition: .5s;
+        }
+
+        .btn-insert:hover {
+          background-color: rgb(131, 236, 252);
+        }
       }
     }
     .list {
       width: 100%;
-      margin: 50px;
+      margin-top: 50px;
 
       .handle {
         font-size: 30px;
         font-weight: 100;
+        cursor: move;
       }
 
       li {
@@ -62,6 +84,11 @@ body {
 
         p {
           flex-grow: 1;
+          padding: 10px;
+          cursor: default;
+          font-family: 'Noto Sans KR', sans-serif;
+          font-weight: bold;
+          font-size: 20px;
         }
 
         span {
@@ -70,13 +97,31 @@ body {
           flex-grow: 1;
           line-height: 1.5;
           display: block;
+          font-family: 'Poppins', sans-serif;
         }
 
-        button {
+        .btn-delete {
           margin-left: 10px;
+          font-size: 20px;
+          width: 30px;
+          height: 30px;
+          border: none;
+          background-image: url(../images/delete.png);
+          background-size: cover;
+          background-color: transparent;
+        }
+        
+        .btn-delete:hover {
+          background-color: transparent;
+          background-image: url(../images/delete.gif);
         }
 
       }
+    }
+
+    #notice {
+      padding: 20px;
+      font-weight: bold;
     }
   }
 
@@ -151,4 +196,5 @@ body {
       }
     }
   }
+  
 }

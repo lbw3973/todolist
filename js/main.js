@@ -52,7 +52,6 @@ const renderTodos = async todos => {
 
     const liEl = document.createElement('li')
     liEl.dataset.index = index++
-    // todo.order = Number(liEl.dataset.index)
     liEl.innerHTML = /* html */`
     <div class="material-symbols-outlined handle">apps</div>
     <input type="checkbox">
@@ -62,14 +61,6 @@ const renderTodos = async todos => {
       <span>수정: ${updatedAt}</span>
     </div>
      `
-    
-    // liEl.addEventListener('dragend', async () => {
-    //   // setListIndex(todo)
-    //   await updateTodo(todo)
-    //   // await allUpdate()
-    //   const todos = await readTodos()
-    //   renderTodos(todos)
-    // })
     
     const checkEl = liEl.querySelector('input')
     checkEl.checked = todo.done
@@ -87,7 +78,7 @@ const renderTodos = async todos => {
     })
 
     const btnEl = document.createElement('button')
-    btnEl.textContent = '삭제!'
+    btnEl.classList.add('btn-delete')
     btnEl.addEventListener('click', async () => {
       await deleteTodo(todo)
       const todos = await readTodos()
@@ -115,31 +106,6 @@ function makemodal(El) {
   modalContainerEl.style.display = 'block'
 }
 
-// function setListIndex(todo) {
-//   const liEls = listEl.querySelectorAll('li')
-//   let index = 0
-
-//   liEls.forEach(x => {
-//     // console.log(x.querySelector('p').innerText)
-
-//     x.dataset.index = index++
-
-//     todo.order = Number(x.dataset.index)
-//     console.log(x.querySelector('p').innerText, x.dataset.index, todo.order)
-//   })
-
-// }
-async function allUpdate() {
-  const liEls = listEl.querySelectorAll('li')
-  liEls.forEach(async x => await updateTodo(x.dataset.id))
-}
-
-modalContainerEl.addEventListener('click', e => {
-  if(e.target.className === 'modal-container'){
-    modalContainerEl.style.display = 'none'
-  }
-})
-
 window.addEventListener('keyup', e => {
   if(e.key === 'Escape'){
     modalContainerEl.style.display = 'none'
@@ -152,6 +118,7 @@ btnModifyEl.addEventListener('click', async () => {
   todo = todo[btnModifyEl.dataset.index]  
   todo.title = inputModifyEl.value
   await updateTodo(todo)
+
   const todos = await readTodos()
   renderTodos(todos)
   modalContainerEl.style.display = 'none'
