@@ -32,7 +32,6 @@ buttonEl.addEventListener('click', async () => {
   await createTodo(inputText)
   const todos = await readTodos()
   renderTodos(todos)
-  fixedLoadingEl.style.display = 'none'
   preventDoubleClick = false
 })
 
@@ -83,7 +82,8 @@ const renderTodos = async todos => {
     const btnEl = document.createElement('button')
     btnEl.classList.add('btn-delete')
     btnEl.addEventListener('click', async () => {
-      if(!confirm("삭제 하시겠습니까?")) { return }
+      if(!confirm("삭제 하시겠습니까?")) { return } 
+      fixedLoadingEl.style.display = 'block'
 
       await deleteTodo(todo)
       const todos = await readTodos()
@@ -102,6 +102,7 @@ const renderTodos = async todos => {
   listEl.append(...liEls)
 
   listContainerEl.style.backgroundImage = 'none'
+  fixedLoadingEl.style.display = 'none'
   
   listEl.childElementCount < 1 ? btnAllDeleteEl.style.display = 'none' : btnAllDeleteEl.style.display = 'block'
 }
@@ -150,6 +151,8 @@ inputModifyEl.addEventListener('keyup', e => {
 btnAllDeleteEl.addEventListener('click', async () => {
   if (!confirm("전체 삭제 하시겠습니까?")) { return; }
 
+  fixedLoadingEl.style.display = 'block'
+  
   const todos = await readTodos();
   await todos.map((todo) => {
     deleteTodo(todo);
