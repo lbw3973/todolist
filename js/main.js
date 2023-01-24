@@ -80,6 +80,8 @@ const renderTodos = async todos => {
     const btnEl = document.createElement('button')
     btnEl.classList.add('btn-delete')
     btnEl.addEventListener('click', async () => {
+      if(!confirm("삭제 하시겠습니까?")) { return }
+      
       await deleteTodo(todo)
       const todos = await readTodos()
       renderTodos(todos)
@@ -108,12 +110,15 @@ function makemodal(El) {
 
 window.addEventListener('keyup', e => {
   if(e.key === 'Escape'){
+    if(!confirm("취소 하시겠습니까?")) { return }
     modalContainerEl.style.display = 'none'
   }
 })
 
     
 btnModifyEl.addEventListener('click', async () => {
+  if(!confirm("수정 하시겠습니까?")) { return }
+
   let todo = await readTodos()
   todo = todo[btnModifyEl.dataset.index]  
   todo.title = inputModifyEl.value
@@ -125,6 +130,8 @@ btnModifyEl.addEventListener('click', async () => {
 })
 
 btnCancelEl.addEventListener('click', () => {
+  if(!confirm("취소 하시겠습니까?")) { return }
+
   modalContainerEl.style.display = 'none'
 })
 
