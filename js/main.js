@@ -4,12 +4,14 @@ import {readTodos, createTodo, updateTodo, deleteTodo} from './request.js';
 let preventDoubleClick = false
 const buttonEl = document.querySelector('.create button')
 const inputEl = document.querySelector('.create input')
+const listContainerEl = document.querySelector('.list-container')
 const listEl = document.querySelector('.list')
+const btnAllDeleteEl = document.querySelector('.btn-all-delete')
 const modalContainerEl = document.querySelector('.modal-container')
-const modalContentEl = document.querySelector('.modal-content')
 const inputModifyEl = document.querySelector('#input-modify')
 const btnModifyEl = document.querySelector('#btn-modify')
 const btnCancelEl = document.querySelector('#btn-cancel')
+const fixedLoadingEl = document.querySelector('.fixed-loading')
 
 let inputText = ''
 inputEl.addEventListener('input', () => {
@@ -26,16 +28,17 @@ inputEl.addEventListener('keyup', e => {
 buttonEl.addEventListener('click', async () => {
   if(preventDoubleClick) {return}
   preventDoubleClick = true
+  fixedLoadingEl.style.display = 'block'
   await createTodo(inputText)
   const todos = await readTodos()
   renderTodos(todos)
+  fixedLoadingEl.style.display = 'none'
   preventDoubleClick = false
 })
 
 new sortable(listEl, {
   handle: '.handle',
   animation: 150,
-  // ghostClass: 'blue-backgrount-class'
 });
 
 ;(async () => {
@@ -81,7 +84,7 @@ const renderTodos = async todos => {
     btnEl.classList.add('btn-delete')
     btnEl.addEventListener('click', async () => {
       if(!confirm("삭제 하시겠습니까?")) { return }
-      
+
       await deleteTodo(todo)
       const todos = await readTodos()
       renderTodos(todos)
@@ -97,13 +100,16 @@ const renderTodos = async todos => {
   })
   listEl.innerHTML = ''
   listEl.append(...liEls)
+
+  listContainerEl.style.backgroundImage = 'none'
+  
+  listEl.childElementCount < 1 ? btnAllDeleteEl.style.display = 'none' : btnAllDeleteEl.style.display = 'block'
 }
 
 function makemodal(El) {
   const inputEl = modalContainerEl.querySelector('input')
   inputEl.value = El.textContent
   btnModifyEl.dataset.index = El.parentElement.dataset.index
-  
 
   modalContainerEl.style.display = 'block'
 }
@@ -139,4 +145,15 @@ inputModifyEl.addEventListener('keyup', e => {
   if(e.key === 'Enter'){
     btnModifyEl.click()
   }
+})
+
+btnAllDeleteEl.addEventListener('click', async () => {
+  if (!confirm("전체 삭제 하시겠습니까?")) { return; }
+
+  const todos = await readTodos();
+  await todos.map((todo) => {
+    deleteTodo(todo);
+  });
+
+  renderTodos([]);
 })

@@ -11,6 +11,11 @@ body {
     cursor: pointer;
   }
 
+  input {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+  }
+
   .container {
     display: flex;
     justify-content: center;
@@ -56,69 +61,89 @@ body {
         .btn-insert:hover {
           background-color: rgb(131, 236, 252);
         }
+
+        .btn-all-delete {
+          display: none;
+          border-radius: 10px;
+          font-weight: bolder;
+          background-color: rgb(221, 202, 255);
+          transition: .5s;
+        }
+
+        .btn-all-delete:hover {
+          background-color: rgb(166, 116, 253);
+        }
       }
     }
-    .list {
+    .list-container {
       width: 100%;
-      margin-top: 50px;
+      background-image: url('../images/loading.gif');
+      background-repeat: no-repeat;
+      background-position: center;
 
-      .handle {
-        font-size: 30px;
-        font-weight: 100;
-        cursor: move;
+      .list {
+        width: 100%;
+        margin-top: 50px;
+  
+        .handle {
+          font-size: 30px;
+          font-weight: 100;
+          cursor: move;
+        }
+  
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 8px;
+          padding: 5px;
+          border-bottom: 1px solid rgb(177, 177, 177);
+          text-decoration-thickness: 1.5px;
+  
+          input {
+            width: 20px;
+            height: 20px;
+          }
+  
+          p {
+            flex-grow: 1;
+            padding: 10px;
+            cursor: default;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+          }
+  
+          span {
+            font-size: 13px;
+            font-weight: bold;
+            flex-grow: 1;
+            line-height: 1.5;
+            display: block;
+            font-family: 'Poppins', sans-serif;
+          }
+  
+          .btn-delete {
+            margin-left: 10px;
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-image: url(../images/delete.png);
+            background-size: cover;
+            background-color: transparent;
+          }
+          
+          .btn-delete:hover {
+            background-color: transparent;
+            background-image: url(../images/delete.gif);
+          }
+  
+        }
       }
-
-      li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 8px;
-        padding: 5px;
-        border-bottom: 1px solid rgb(177, 177, 177);
-        text-decoration-thickness: 1.5px;
-
-        input {
-          width: 20px;
-          height: 20px;
-        }
-
-        p {
-          flex-grow: 1;
-          padding: 10px;
-          cursor: default;
-          font-family: 'Noto Sans KR', sans-serif;
-          font-weight: bold;
-          font-size: 20px;
-        }
-
-        span {
-          font-size: 13px;
-          font-weight: bold;
-          flex-grow: 1;
-          line-height: 1.5;
-          display: block;
-          font-family: 'Poppins', sans-serif;
-        }
-
-        .btn-delete {
-          margin-left: 10px;
-          font-size: 20px;
-          width: 30px;
-          height: 30px;
-          border: none;
-          background-image: url(../images/delete.png);
-          background-size: cover;
-          background-color: transparent;
-        }
-        
-        .btn-delete:hover {
-          background-color: transparent;
-          background-image: url(../images/delete.gif);
-        }
-
-      }
+  
     }
-
+    
     #notice {
       padding: 20px;
       font-weight: bold;
@@ -185,17 +210,44 @@ body {
         bottom: 0;
         right: 80px;
         margin: 10px;
-        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-image: url(../images/edit.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
       }
 
       #btn-cancel {
         position: absolute;
         bottom: 0;
-        right: 0;
+        right: 10px;
         margin: 10px;
-        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-image: url(../images/cancel.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
       }
     }
+  }
+
+  .fixed-loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(3px);
+    display: none;
   }
   
 }

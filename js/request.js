@@ -14,8 +14,6 @@ export const createTodo = async title => {
     })
   })
   const json = await res.json()
-  console.log(json)
-
   return json
 }
 
@@ -25,8 +23,6 @@ export const readTodos = async () => {
     headers: headers
   })
   const json = await res.json()
-  console.log(json)
-
   return json
 }
 

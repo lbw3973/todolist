@@ -23,8 +23,11 @@
       <div class="insert-section">
         <input type="text" placeholder="할 일 추가">
         <button class="btn-insert">+</button>
+        <button class="btn-all-delete">전체 삭제</button>
       </div>
-      <ul class="list"></ul>
+      <div class="list-container">
+        <ul class="list"></ul>
+      </div>
       <span id="notice"> 💡 수정이 필요하면 텍스트를 더블클릭하세요!</span>
     </div>
   </div>
@@ -35,10 +38,11 @@
         <h2>Edit</h2>
       </div>
       <input type="text" id="input-modify">
-      <button id="btn-modify">수정</button>
-      <button id="btn-cancel">취소</button>
+      <button id="btn-modify"></button>
+      <button id="btn-cancel"></button>
     </div>
   </div>
+  <div class="fixed-loading"></div>
     
 </body>
 </html>
