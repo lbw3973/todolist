@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Solitreo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
 body {
   background: linear-gradient(135deg, #feccff, #ccf7fe, #fcffe4);
@@ -12,7 +12,7 @@ body {
   }
 
   input {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-weight: bold;
   }
 
@@ -21,7 +21,7 @@ body {
     justify-content: center;
     margin-top: 50px;
 
-    .create {      
+    .create {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -32,13 +32,13 @@ body {
       border-radius: 10px;
 
       h1 {
-        font-family: 'Solitreo', cursive;
+        font-family: "Solitreo", cursive;
         text-align: center;
         margin: 20px auto;
-        font-size: 50px;  
+        font-size: 50px;
       }
 
-      .insert-section{
+      .insert-section {
         display: flex;
         gap: 10px;
 
@@ -49,13 +49,13 @@ body {
           border-style: solid;
           border-radius: 10px;
         }
-  
+
         .btn-insert {
           font-size: 30px;
           width: 50px;
           border-radius: 10px;
-          background-color: rgb(205,247,253);
-          transition: .5s;
+          background-color: rgb(205, 247, 253);
+          transition: 0.5s;
         }
 
         .btn-insert:hover {
@@ -67,7 +67,7 @@ body {
           border-radius: 10px;
           font-weight: bolder;
           background-color: rgb(221, 202, 255);
-          transition: .5s;
+          transition: 0.5s;
         }
 
         .btn-all-delete:hover {
@@ -77,20 +77,20 @@ body {
     }
     .list-container {
       width: 100%;
-      background-image: url('../images/loading.gif');
+      background-image: url("../images/loading.gif");
       background-repeat: no-repeat;
       background-position: center;
 
       .list {
         width: 100%;
         margin-top: 50px;
-  
+
         .handle {
           font-size: 30px;
           font-weight: 100;
           cursor: move;
         }
-  
+
         li {
           display: flex;
           justify-content: space-between;
@@ -99,30 +99,30 @@ body {
           padding: 5px;
           border-bottom: 1px solid rgb(177, 177, 177);
           text-decoration-thickness: 1.5px;
-  
+
           input {
             width: 20px;
             height: 20px;
           }
-  
+
           p {
             flex-grow: 1;
             padding: 10px;
             cursor: default;
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: "Noto Sans KR", sans-serif;
             font-weight: bold;
             font-size: 20px;
           }
-  
+
           span {
             font-size: 13px;
             font-weight: bold;
             flex-grow: 1;
             line-height: 1.5;
             display: block;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
           }
-  
+
           .btn-delete {
             margin-left: 10px;
             font-size: 20px;
@@ -133,17 +133,15 @@ body {
             background-size: cover;
             background-color: transparent;
           }
-          
+
           .btn-delete:hover {
             background-color: transparent;
             background-image: url(../images/delete.gif);
           }
-  
         }
       }
-  
     }
-    
+
     #notice {
       padding: 20px;
       font-weight: bold;
@@ -157,7 +155,6 @@ body {
     height: 100%;
     z-index: 100;
     backdrop-filter: blur(2px);
-    display: none;
 
     .modal-content {
       position: fixed;
@@ -177,7 +174,7 @@ body {
         margin-left: 40px;
         display: flex;
         align-items: center;
-      
+
         h2 {
           font-weight: bold;
           font-size: 25px;
@@ -204,35 +201,26 @@ body {
         border-color: rgb(12, 12, 12);
         border-style: solid;
       }
-
-      #btn-modify {
+      .btn-modal {
         position: absolute;
         bottom: 0;
-        right: 80px;
         margin: 10px;
         width: 40px;
         height: 40px;
         border: none;
-        background-image: url(../images/edit.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
         background-color: transparent;
       }
+      #btn-modify {
+        right: 80px;
+        background-image: url(../images/edit.png);
+      }
 
       #btn-cancel {
-        position: absolute;
-        bottom: 0;
         right: 10px;
-        margin: 10px;
-        width: 40px;
-        height: 40px;
-        border: none;
         background-image: url(../images/cancel.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: transparent;
       }
     }
   }
@@ -249,5 +237,4 @@ body {
     backdrop-filter: blur(3px);
     display: none;
   }
-  
 }
