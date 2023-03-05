@@ -20,6 +20,7 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    min-width: 960px;
 
     .create {
       display: flex;
@@ -149,6 +150,7 @@ body {
   }
 
   .modal-container {
+    min-width: 960px;
     position: fixed;
     top: 0;
     width: 100%;
