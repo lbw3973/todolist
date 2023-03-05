@@ -1,6 +1,6 @@
 # 📌 할 일 관리(Todo)
 
-- [DEMO](https://todolist-bwlee.netlify.app)
+- [DEMO](todolist-lbw3973.vercel.app)
 
 ### ❗ 필수
 
